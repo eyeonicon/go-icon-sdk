@@ -3,8 +3,7 @@ package transactions
 import (
 	"github.com/icon-project/goloop/server/jsonrpc"
 	"github.com/icon-project/goloop/server/v3"
-	"paulrouge/go-icon-sdk/networks"
-		
+	"paulrouge/go-icon-sdk/networks"	
 )
 
 // amount is number of icx as a string
