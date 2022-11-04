@@ -17,7 +17,7 @@ Client := client.NewClientV3(networks.GetActiveNetwork().URL)
 ```
 
 ## Create Wallet
-When creating a new wallet it is automatically saved as a keystore file. Call the function below with the path + filename you want to save the keystore file to. The password is used to encrypt the keystore file.
+When creating a new wallet it is automatically __saved as a keystore file.__ Call the function below with the _"path + filename"_. The password is used to encrypt the keystore file.
 
 ```go
 wallet.CreateNewWalletAndKeystore("mywallets/keystore01", "password")
