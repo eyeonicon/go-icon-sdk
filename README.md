@@ -159,6 +159,8 @@ res, _ := Client.Call(callObject)
 
 fmt.Println(res) // Returns the current value of 'name' on the contract.
 
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
 // Now let us change the value of the 'name' variable on the contract.
 
 // We will now try to change the value of 'name' on the contract.
