@@ -15,6 +15,10 @@ networks.SetActiveNetwork(networks.Lisbon())
 Client := client.NewClientV3(networks.GetActiveNetwork().URL)
 ```
 
+ read me already 
+joejoe[Click here to see all the available methods on the created Client](https://pkg.go.dev/github.com/icon-project/goloop@v1.2.14/client#NewClientV3)
+
+
 ## Create Wallet
 When creating a new wallet it is automatically __saved as a keystore file.__ Call the function below with the _"path + filename"_. The password is used to encrypt the keystore file.
 
@@ -34,7 +38,9 @@ __Note:__ To prevent confusing between the created wallet instance and the walle
 Use the TransferICXBuilder to get a transaction object.
 
 ```go
-txobject := transactions.TransferICXBuilder("hx9c13cd371aed69c79870b3a3f7492c10122f0315", "1000000000000000000")
+address := "hx0000000000000000000000000000000000000000"
+
+txobject := transactions.TransferICXBuilder(address, "1000000000000000000")
 ```
 
 

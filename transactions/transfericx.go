@@ -3,22 +3,20 @@ package transactions
 import (
 	"github.com/icon-project/goloop/server/jsonrpc"
 	"github.com/icon-project/goloop/server/v3"
-	"paulrouge/go-icon-sdk/networks"	
+	"paulrouge/go-icon-sdk/networks"
+	"math/big"
+	"paulrouge/go-icon-sdk/util"
 )
 
 // amount is number of icx as a string
-func TransferICXBuilder(to string, amount string) *v3.TransactionParam {
-
+func TransferICXBuilder(to string, amount *big.Int) *v3.TransactionParam {
 	// convert to to jsonrpc.Address
 	toAddress := jsonrpc.Address(to)
 	
-	// convert amount to jsonrpc.HexInt
-	amountHex := jsonrpc.HexInt(amount)
-
 	txParams := v3.TransactionParam{
 		FromAddress: "hx9c13cd371aed69c79870b3a3f7492c10122f0315",
 		ToAddress: toAddress,
-		Value: amountHex,
+		Value: util.BigIntToHex(amount),
 		StepLimit: "0xf4240",
 		NetworkID: networks.GetActiveNetwork().NID,
 		Nonce: "0x1",
