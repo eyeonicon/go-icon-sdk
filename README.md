@@ -39,7 +39,7 @@ fmt.Println(util.HexToBigInt(string(*balance)))
 
 
 ## Create Wallet
-When creating a new wallet it is automatically __saved as a keystore file.__ Call the function below with the _"path + filename"_. The password is used to encrypt the keystore file.
+When creating a new wallet it is automatically __saved as a keystore file.__ Call the function below with the _"path/filename"_. The password is used to encrypt the keystore file, don't forget it!
 
 ```go
 wallet.CreateNewWalletAndKeystore("../mywallets/keystore01", "password")
@@ -110,7 +110,7 @@ fmt.Println(response) // "Art Gallery"
 
 ```go
 // set address
-a := "cx33a937d7ab021eab50a7b729c4de9c10a77d51bd"
+contractAddress := "cx33a937d7ab021eab50a7b729c4de9c10a77d51bd"
 
 // this is the method takes in a parameter
 method := "getNFTPrice" 
@@ -121,7 +121,7 @@ params := map[string]interface{}{
 }
 
 // create call object
-callObject := transactions.CallBuilder(a,method, params)
+callObject := transactions.CallBuilder(contractAddress, method, params)
 
 // make the call
 response, err := Client.Call(callObject)
@@ -161,7 +161,7 @@ fmt.Println(res) // Returns the current value of 'name' on the contract.
 
 //////////////////////////////// NOW WE WILL CHANGE THE VALUE ///////////////////////////////////
 
-// We will now try to change the value of 'name' on the contract.
+// the method we want to call is called "setName"
 method = "setName"
 
 // the params for the method,
