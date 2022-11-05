@@ -96,10 +96,15 @@ fmt.Println(response) // should be -> "Art Gallery"
 2. Call a method with parameters
 
 ```go
+// set address
 a := "cx33a937d7ab021eab50a7b729c4de9c10a77d51bd"
-method := "getNFTPrice" // this is the method we are going to call, that takes in a parameter
+
+// this is the method takes in a parameter
+method := "getNFTPrice" 
+
+// the parameter _tokenId is set to 0x2
 params := map[string]interface{}{
-    "_tokenId": "0x2", // the parameter _tokenId is set to 0x2
+    "_tokenId": "0x2", 
 }
 
 // create call object
