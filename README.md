@@ -159,21 +159,20 @@ res, _ := Client.Call(callObject)
 
 fmt.Println(res) // Returns the current value of 'name' on the contract.
 
-/////////////////////////////////////////////////////////////////////////////////////////////////
-
-// Now let us change the value of the 'name' variable on the contract.
+//////////////////////////////// NOW WE WILL CHANGE THE VALUE ///////////////////////////////////
 
 // We will now try to change the value of 'name' on the contract.
 method = "setName"
 
-// the params for the method
+// the params for the method,
 params := map[string]interface{}{
     "name": "Satoshi",
 }
 
+// this transaction / method call does not require payment so we can set the value to 0,
 value := util.HexToBigInt("0x0")
 
-// We need to sign the tx, so we use the TransactionBuilder. We don't need to specify a value, so we pass in nil.
+// We need to sign the tx, so we use the TransactionBuilder. 
 tx := transactions.TransactionBuilder(Wallet.Address(), contractAddress, method, params, value)
 
 // sign the tx
