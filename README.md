@@ -7,7 +7,11 @@ In src/main.go in the main function:
 
 1. Set the node you want to connect to globally. You can add networks in the networks/networks.go file.
 ```go
+// Lisbon Testnet
 networks.SetActiveNetwork(networks.Lisbon())
+
+// Mainnet
+networks.SetActiveNetwork(networks.Mainnet())
 ```
 
 2. Create client
@@ -38,10 +42,14 @@ Use the TransferICXBuilder to get a transaction object. The address should be a 
 
 
 ```go
+// set address & amount of ICX to sent
 address := "hx0000000000000000000000000000000000000000" // must be a string
 amount := 1 // can also be a string "1" or a float 1.0
+
+// convert amount of icx to loop in big.Int
 bn := util.ICXToLoop(amount)
 
+// create transaction object
 txobject := transactions.TransferICXBuilder(address, bn)
 
 // we need to have a wallet loaded to sign the transaction
@@ -58,5 +66,29 @@ fmt.Println(tx)
 
 ```
 
+## Call a Smart Contract on the ICON Blockchain
+Use the CallBuilder to get a call-object. The Callbuilder takes in the address of the smart contract as a string, the name of the method you want to call (also as a string) and a params object. If the method you want to call does not take any parameters you can just pass in a empty object.
 
+```go
+    // set address
+	a := "cx26a32e36df0a408a573163d05b3043c180359735"
+	
+    // set the method to call -> there is a method on this contract called "name"
+    method := "name" 
+	
+    // this method does not take in any parameters, we do need to create an empty object
+    params := map[string]interface{}{}
+
+    // create call object
+	callObject := transactions.CallBuilder(a,method, params)
+
+    // make the call
+	response, err := Client.Call(callObject)
+	if err != nil {
+		fmt.Println(err)
+	}
+
+    // print the response
+    fmt.Println(response)
+```
 
