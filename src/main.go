@@ -3,22 +3,21 @@ package main
 import (
 	"fmt"
 	"github.com/icon-project/goloop/client"
-	"github.com/icon-project/goloop/server/jsonrpc"
+	// "github.com/icon-project/goloop/server/jsonrpc"
 	"paulrouge/go-icon-sdk/networks"
 	"paulrouge/go-icon-sdk/transactions"
 	"paulrouge/go-icon-sdk/util"
 	"paulrouge/go-icon-sdk/wallet"
-	v3 "github.com/icon-project/goloop/server/v3"
+	// v3 "github.com/icon-project/goloop/server/v3"
 )
 
 
 func main() {
-	fmt.Println("Hello, world!")
+	fmt.Println("Connecting to network...")
 	
 	// set the active network globally (this way we can reuse the network id in the tx builders)
 	networks.SetActiveNetwork(networks.Lisbon())
 	
-
 	Client := client.NewClientV3(networks.GetActiveNetwork().URL)
 	_ = Client
 
@@ -26,46 +25,42 @@ func main() {
 
 	_ = Wallet
 
-	// bn := util.ICXToLoop(0.1)
-	// txobject := transactions.TransferICXBuilder("hx9c13cd371aed69c79870b3a3f7492c10122f0315", bn)
 
-	// tx, err := Client.SendTransaction(Wallet, txobject)
-	// if err != nil {
-	// 	fmt.Println(err)
-	// }
 
-	// // tx to string
-	// fmt.Println(string(*tx))
+	// set the contract address
+	contractAddress := "cx2b60e6e094df34a0d7c05b5ff5cb6758aba7e83e"
+	
+	// this address has a method called name that returns the current "name" value of the contract
+	method := "name"
 
-	// a := "cx33a937d7ab021eab50a7b729c4de9c10a77d51bd"
-	// method := "getNFTPrice"
-	// params := map[string]interface{}{
-	// 	"_tokenId": "0x2",
-	// }
+	// we only read the contract, so we don't need to sign the tx and can use the CallBuilder
+	callObject := transactions.CallBuilder(contractAddress, method, nil)
+	
+	// send the call
+	res, _ := Client.Call(callObject)
 
-	// callObject := transactions.CallBuilder(a,method, params)
-
-	// response, err := Client.Call(callObject)
-	// if err != nil {
-	// 	fmt.Println(err)
-	// }
+	fmt.Println(res) // Returns the current value of 'name' on the contract.
 
 	
-	// // hex := jsonrpc.HexInt(response.(string))
-	// bn := util.HexToBigInt(response.(string))
+	// We will now try to change the value of 'name' on the contract.
+	method = "setName"
 	
-	// fmt.Println(bn) // is BigInt with 18 decimals
+	// the params for the method
+	params := map[string]interface{}{
+		"name": "Satoshi",
+	}
 	
-	// declare an AddressParam
-	var adr v3.AddressParam 
+	value := util.HexToBigInt("0x0")
 	
-	// set the address to the .Address field
-	adr.Address = jsonrpc.Address("hx9c13cd371aed69c79870b3a3f7492c10122f0315")
-	
-	// get the balance of the address
-	balance, _ := Client.GetBalance(&adr)
+	// We need to sign the tx, so we use the TransactionBuilder. We don't need to specify a value, so we pass in nil.
+	tx := transactions.TransactionBuilder(Wallet.Address(), contractAddress, method, params, value)
 
-	// print the balance using util.HexToBigInt()
-	fmt.Println(util.HexToBigInt(string(*balance)))
+	// sign the tx
+	hash, err := Client.SendTransaction(Wallet, tx)
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	fmt.Println(*hash) // Returns the hash of the tx.
 
 }

@@ -81,32 +81,29 @@ if err != nil {
 fmt.Println(*tx)
 ```
 
-## Call a Smart Contract on the ICON Blockchain
+## Call a Smart Contract on the ICON Blockchain (read-only)
 Use the CallBuilder to get a call-object. The Callbuilder takes in the address of the smart contract as a string, the name of the method you want to call (also as a string) and a params object. If the method you want to call does not take any parameters you can just pass in a empty object.
 
 1. Call a method with no parameters
 
 ```go
 // set address
-a := "cx33a937d7ab021eab50a7b729c4de9c10a77d51bd"
+contractAddress := "cx33a937d7ab021eab50a7b729c4de9c10a77d51bd"
 
-// set the method to call -> there is a method on this contract called "name"
+// set the method to call (there is a method on this contract called "name")
 method := "name" 
 
-// this method does not take in any parameters, we do need to create an empty object
-params := map[string]interface{}{}
-
-// create call object
-callObject := transactions.CallBuilder(a, method, params)
+// create call object with params as nil
+callObject := transactions.CallBuilder(contractAddress, method, nil)
 
 // make the call
-response, err := Client.Call(callObject) // * Client is set at step 2
+response, err := Client.Call(callObject) 
 if err != nil {
     fmt.Println(err)
 }
 
 // print the response
-fmt.Println(response) // should be -> "Art Gallery"
+fmt.Println(response) // "Art Gallery"
 ```
 
 2. Call a method with parameters
@@ -139,5 +136,50 @@ hex := jsonrpc.HexInt(response.(string))
 bn := util.HexToBigInt(hex)
 
 // and finally print it
-fmt.Println(bn) // is BigInt with 18 decimals
+fmt.Println(bn) 
 ```
+
+## Change a value in a Smart Contract on the ICON Blockchain
+When you want to change a value on a smart contract you need to use the "SendTransaction" function. This function takes in a wallet, a transaction object and a stepLimit. The stepLimit is the maximum amount of steps that the transaction can use. The stepLimit is calculated by the ICON network and is returned in the response of the transaction. If you want to be sure that your transaction is executed you can set the stepLimit to a very high number. 
+
+Here we first call the current value of the 'name' variable on the contract, and then change it.
+
+```go
+// set the contract address
+contractAddress := "cx2b60e6e094df34a0d7c05b5ff5cb6758aba7e83e"
+
+// this address has a method called name that returns the current "name" value of the contract
+method := "name"
+
+// we only read the contract, so we don't need to sign the tx and can use the CallBuilder
+callObject := transactions.CallBuilder(contractAddress, method, nil)
+
+// send the call
+res, _ := Client.Call(callObject)
+
+fmt.Println(res) // Returns the current value of 'name' on the contract.
+
+// Now let us change the value of the 'name' variable on the contract.
+
+// We will now try to change the value of 'name' on the contract.
+method = "setName"
+
+// the params for the method
+params := map[string]interface{}{
+    "name": "Satoshi",
+}
+
+value := util.HexToBigInt("0x0")
+
+// We need to sign the tx, so we use the TransactionBuilder. We don't need to specify a value, so we pass in nil.
+tx := transactions.TransactionBuilder(Wallet.Address(), contractAddress, method, params, value)
+
+// sign the tx
+hash, err := Client.SendTransaction(Wallet, tx)
+if err != nil {
+    fmt.Println(err)
+}
+
+fmt.Println(*hash) // Returns the hash of the tx.
+```
+Run the first part of the code again or [check the contract on the tracker](https://lisbon.tracker.solidwallet.io/contract/cx2b60e6e094df34a0d7c05b5ff5cb6758aba7e83e#readcontract) to see if the value has changed.
