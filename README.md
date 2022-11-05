@@ -61,17 +61,18 @@ if err != nil {
     fmt.Println(err)
 }
 
-// print the transaction hash (not working correctly atm!)
-fmt.Println(tx)
-
+// print the transaction hash
+fmt.Println(*tx)
 ```
 
 ## Call a Smart Contract on the ICON Blockchain
 Use the CallBuilder to get a call-object. The Callbuilder takes in the address of the smart contract as a string, the name of the method you want to call (also as a string) and a params object. If the method you want to call does not take any parameters you can just pass in a empty object.
 
+1. Call a method with no parameters
+
 ```go
 // set address
-a := "cx26a32e36df0a408a573163d05b3043c180359735"
+a := "cx33a937d7ab021eab50a7b729c4de9c10a77d51bd"
 
 // set the method to call -> there is a method on this contract called "name"
 method := "name" 
@@ -89,6 +90,28 @@ if err != nil {
 }
 
 // print the response
-fmt.Println(response)
+fmt.Println(response) // should be -> "Art Gallery"
 ```
 
+2. Call a method with parameters
+
+```go
+a := "cx33a937d7ab021eab50a7b729c4de9c10a77d51bd"
+method := "getNFTPrice"
+params := map[string]interface{}{
+    "_tokenId": "0x2",
+}
+
+callObject := transactions.CallBuilder(a,method, params)
+
+response, err := Client.Call(callObject)
+if err != nil {
+    fmt.Println(err)
+}
+
+
+hex := jsonrpc.HexInt(response.(string))
+bn := util.HexToBigInt(hex)
+
+fmt.Println(bn) // is BigInt with 18 decimals
+```

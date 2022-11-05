@@ -40,3 +40,8 @@ func BigIntToHex(bi *big.Int) jsonrpc.HexInt {
 	_hex := jsonrpc.HexInt(hex)
 	return _hex
 }
+
+func HexToBigInt(hex jsonrpc.HexInt) *big.Int {
+	bi := hexutil.MustDecodeBig(string(hex))
+	return bi
+}

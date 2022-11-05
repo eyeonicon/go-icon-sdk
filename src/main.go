@@ -1,14 +1,16 @@
 package main
 
 import (
-	"github.com/icon-project/goloop/client"
 	"fmt"
 	"paulrouge/go-icon-sdk/networks"
-	"paulrouge/go-icon-sdk/wallet"
-	// "github.com/icon-project/goloop/server/jsonrpc"
 	"paulrouge/go-icon-sdk/transactions"
-	// "paulrouge/go-icon-sdk/util"
+	"paulrouge/go-icon-sdk/util"
+	"paulrouge/go-icon-sdk/wallet"
 
+	"github.com/icon-project/goloop/client"
+
+	// "paulrouge/go-icon-sdk/util"
+	"github.com/icon-project/goloop/server/jsonrpc"
 )
 
 
@@ -26,12 +28,7 @@ func main() {
 
 	_ = Wallet
 
-	// bn := util.ICXToLoop(1.5)
-
-	// fmt.Println(bn)
-
-	// fmt.Printf("type of bn: %T\n", bn)
-		
+	// bn := util.ICXToLoop(0.1)
 	// txobject := transactions.TransferICXBuilder("hx9c13cd371aed69c79870b3a3f7492c10122f0315", bn)
 
 	// tx, err := Client.SendTransaction(Wallet, txobject)
@@ -39,11 +36,14 @@ func main() {
 	// 	fmt.Println(err)
 	// }
 
-	// fmt.Println(tx)
+	// // tx to string
+	// fmt.Println(string(*tx))
 
-	a := "cx26a32e36df0a408a573163d05b3043c180359735"
-	method := "name"
-	params := map[string]interface{}{}
+	a := "cx33a937d7ab021eab50a7b729c4de9c10a77d51bd"
+	method := "getNFTPrice"
+	params := map[string]interface{}{
+		"_tokenId": "0x2",
+	}
 
 	callObject := transactions.CallBuilder(a,method, params)
 
@@ -52,8 +52,10 @@ func main() {
 		fmt.Println(err)
 	}
 
-	fmt.Println(response) // Alice
+	
+	hex := jsonrpc.HexInt(response.(string))
+	bn := util.HexToBigInt(hex)
+	
+	fmt.Println(bn) // is BigInt with 18 decimals
 
-
-	// _ = txobject
 }
