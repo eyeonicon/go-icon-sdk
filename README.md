@@ -15,8 +15,7 @@ networks.SetActiveNetwork(networks.Lisbon())
 Client := client.NewClientV3(networks.GetActiveNetwork().URL)
 ```
 
- read me already 
-joejoe[Click here to see all the available methods on the created Client](https://pkg.go.dev/github.com/icon-project/goloop@v1.2.14/client#NewClientV3)
+[Click here to see all the available methods on the created Client](https://pkg.go.dev/github.com/icon-project/goloop@v1.2.14/client#NewClientV3)
 
 
 ## Create Wallet
@@ -35,12 +34,15 @@ Wallet := wallet.LoadWalletFromKeystore("mywallets/keystore01", "password")
 __Note:__ To prevent confusing between the created wallet instance and the wallet-package we name the wallet that we load "Wallet" (so with a capital W, instead of the package name).
 
 ## Send ICX
-Use the TransferICXBuilder to get a transaction object.
+Use the TransferICXBuilder to get a transaction object. The address should be a string and the amount must be converted to a big.Int before sending it to the builder. We do this by using the "util.ICXToLoop()" function.
+
 
 ```go
 address := "hx0000000000000000000000000000000000000000"
+amount := 1 // can also by string "1" or float 1.0
+bn := util.ICXToLoop(amount)
 
-txobject := transactions.TransferICXBuilder(address, "1000000000000000000")
+txobject := transactions.TransferICXBuilder(address, bn)
 ```
 
 
