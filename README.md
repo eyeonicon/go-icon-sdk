@@ -22,14 +22,14 @@ Client := client.NewClientV3(networks.GetActiveNetwork().URL)
 When creating a new wallet it is automatically __saved as a keystore file.__ Call the function below with the _"path + filename"_. The password is used to encrypt the keystore file.
 
 ```go
-wallet.CreateNewWalletAndKeystore("mywallets/keystore01", "password")
+wallet.CreateNewWalletAndKeystore("../mywallets/keystore01", "password")
 ```
 
 ## Load Wallet
 When loading a wallet you need to provide the path to the keystore file and the password to decrypt the keystore file.
 
 ```go
-Wallet := wallet.LoadWalletFromKeystore("mywallets/keystore01", "password")
+Wallet := wallet.LoadWalletFromKeystore("../mywallets/keystore01", "password")
 ```
 __Note:__ To prevent confusing between the created wallet instance and the wallet-package we name the wallet that we load "Wallet" (so with a capital W, instead of the package name).
 
@@ -38,11 +38,24 @@ Use the TransferICXBuilder to get a transaction object. The address should be a 
 
 
 ```go
-address := "hx0000000000000000000000000000000000000000"
-amount := 1 // can also by string "1" or float 1.0
+address := "hx0000000000000000000000000000000000000000" // must be a string
+amount := 1 // can also be a string "1" or a float 1.0
 bn := util.ICXToLoop(amount)
 
 txobject := transactions.TransferICXBuilder(address, bn)
+
+// we need to have a wallet loaded to sign the transaction
+Wallet := wallet.LoadWallet("../mywallets/keystore01", "password")
+
+// sign & send the transaction
+tx, err := Client.SendTransaction(Wallet, txobject)
+if err != nil {
+    fmt.Println(err)
+}
+
+// print the transaction hash (not working correctly atm!)
+fmt.Println(tx)
+
 ```
 
 
