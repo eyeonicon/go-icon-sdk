@@ -2,15 +2,13 @@ package main
 
 import (
 	"fmt"
+	"github.com/icon-project/goloop/client"
+	"github.com/icon-project/goloop/server/jsonrpc"
 	"paulrouge/go-icon-sdk/networks"
 	"paulrouge/go-icon-sdk/transactions"
 	"paulrouge/go-icon-sdk/util"
 	"paulrouge/go-icon-sdk/wallet"
-
-	"github.com/icon-project/goloop/client"
-
-	// "paulrouge/go-icon-sdk/util"
-	"github.com/icon-project/goloop/server/jsonrpc"
+	v3 "github.com/icon-project/goloop/server/v3"
 )
 
 
@@ -39,23 +37,35 @@ func main() {
 	// // tx to string
 	// fmt.Println(string(*tx))
 
-	a := "cx33a937d7ab021eab50a7b729c4de9c10a77d51bd"
-	method := "getNFTPrice"
-	params := map[string]interface{}{
-		"_tokenId": "0x2",
-	}
+	// a := "cx33a937d7ab021eab50a7b729c4de9c10a77d51bd"
+	// method := "getNFTPrice"
+	// params := map[string]interface{}{
+	// 	"_tokenId": "0x2",
+	// }
 
-	callObject := transactions.CallBuilder(a,method, params)
+	// callObject := transactions.CallBuilder(a,method, params)
 
-	response, err := Client.Call(callObject)
-	if err != nil {
-		fmt.Println(err)
-	}
+	// response, err := Client.Call(callObject)
+	// if err != nil {
+	// 	fmt.Println(err)
+	// }
 
 	
-	hex := jsonrpc.HexInt(response.(string))
-	bn := util.HexToBigInt(hex)
+	// // hex := jsonrpc.HexInt(response.(string))
+	// bn := util.HexToBigInt(response.(string))
 	
-	fmt.Println(bn) // is BigInt with 18 decimals
+	// fmt.Println(bn) // is BigInt with 18 decimals
+	
+	// declare an AddressParam
+	var adr v3.AddressParam 
+	
+	// set the address to the .Address field
+	adr.Address = jsonrpc.Address("hx9c13cd371aed69c79870b3a3f7492c10122f0315")
+	
+	// get the balance of the address
+	balance, _ := Client.GetBalance(&adr)
+
+	// print the balance using util.HexToBigInt()
+	fmt.Println(util.HexToBigInt(string(*balance)))
 
 }

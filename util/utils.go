@@ -5,7 +5,6 @@ import (
 	"github.com/icon-project/goloop/server/jsonrpc"
 	"github.com/shopspring/decimal"
 	"github.com/ubiq/go-ubiq/common/hexutil"
-
 )
 
 // ICX to 18 decimal loop
@@ -41,7 +40,8 @@ func BigIntToHex(bi *big.Int) jsonrpc.HexInt {
 	return _hex
 }
 
-func HexToBigInt(hex jsonrpc.HexInt) *big.Int {
+func HexToBigInt(hex string) *big.Int {
+	
 	bi := hexutil.MustDecodeBig(string(hex))
 	return bi
 }

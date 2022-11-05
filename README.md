@@ -19,6 +19,22 @@ networks.SetActiveNetwork(networks.Mainnet())
 Client := client.NewClientV3(networks.GetActiveNetwork().URL)
 ```
 
+We can now call several functions on the client. For example, we can get the balance of an address like this:
+
+```go
+// declare an AddressParam
+var adr v3.AddressParam 
+
+// set the address to the .Address field
+adr.Address = jsonrpc.Address("hx9c13cd371aed69c79870b3a3f7492c10122f0315")
+
+// get the balance of the address
+balance, _ := Client.GetBalance(&adr)
+
+// print the balance using util.HexToBigInt()
+fmt.Println(util.HexToBigInt(string(*balance)))
+```
+
 [Click here to see all the available methods on the created Client](https://pkg.go.dev/github.com/icon-project/goloop@v1.2.14/client#NewClientV3)
 
 
