@@ -70,25 +70,25 @@ fmt.Println(tx)
 Use the CallBuilder to get a call-object. The Callbuilder takes in the address of the smart contract as a string, the name of the method you want to call (also as a string) and a params object. If the method you want to call does not take any parameters you can just pass in a empty object.
 
 ```go
-    // set address
-	a := "cx26a32e36df0a408a573163d05b3043c180359735"
-	
-    // set the method to call -> there is a method on this contract called "name"
-    method := "name" 
-	
-    // this method does not take in any parameters, we do need to create an empty object
-    params := map[string]interface{}{}
+// set address
+a := "cx26a32e36df0a408a573163d05b3043c180359735"
 
-    // create call object
-	callObject := transactions.CallBuilder(a,method, params)
+// set the method to call -> there is a method on this contract called "name"
+method := "name" 
 
-    // make the call
-	response, err := Client.Call(callObject)
-	if err != nil {
-		fmt.Println(err)
-	}
+// this method does not take in any parameters, we do need to create an empty object
+params := map[string]interface{}{}
 
-    // print the response
-    fmt.Println(response)
+// create call object
+callObject := transactions.CallBuilder(a, method, params)
+
+// make the call
+response, err := Client.Call(callObject) // * Client is set at step 2
+if err != nil {
+    fmt.Println(err)
+}
+
+// print the response
+fmt.Println(response)
 ```
 
