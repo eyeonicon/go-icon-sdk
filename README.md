@@ -97,21 +97,26 @@ fmt.Println(response) // should be -> "Art Gallery"
 
 ```go
 a := "cx33a937d7ab021eab50a7b729c4de9c10a77d51bd"
-method := "getNFTPrice"
+method := "getNFTPrice" // this is the method we are going to call, that takes in a parameter
 params := map[string]interface{}{
-    "_tokenId": "0x2",
+    "_tokenId": "0x2", // the parameter _tokenId is set to 0x2
 }
 
+// create call object
 callObject := transactions.CallBuilder(a,method, params)
 
+// make the call
 response, err := Client.Call(callObject)
 if err != nil {
     fmt.Println(err)
 }
 
-
+// the response is a string, we need to convert it to a hex
 hex := jsonrpc.HexInt(response.(string))
+
+// and then convert it to a bigInt
 bn := util.HexToBigInt(hex)
 
+// and finally print it
 fmt.Println(bn) // is BigInt with 18 decimals
 ```
