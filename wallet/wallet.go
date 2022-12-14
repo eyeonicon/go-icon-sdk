@@ -31,7 +31,7 @@ func (w *softwareWallet) PublicKey() []byte {
 }
 
 // creates a new key pair and returns a new wallet
-func New() module.Wallet {
+func new() module.Wallet {
 	sk, pk := crypto.GenerateKeyPair()
 	return &softwareWallet{
 		skey: sk,
@@ -40,7 +40,7 @@ func New() module.Wallet {
 }
 
 // creates a key pair from a private key
-func NewFromPrivateKey(sk *crypto.PrivateKey) (module.Wallet, error) {
+func newFromPrivateKey(sk *crypto.PrivateKey) (module.Wallet, error) {
 	pk := sk.PublicKey()
 	return &softwareWallet{
 		skey: sk,

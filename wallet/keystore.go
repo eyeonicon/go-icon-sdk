@@ -82,7 +82,7 @@ func SHA3SumKeccak256(data ...[]byte) []byte {
 }
 
 // Encrypte the private key with the password, save it to the filepath and return the keystore data
-func EncryptKeyAsKeyStore(s *crypto.PrivateKey, pw []byte, filepath string) ([]byte, error) {
+func encryptKeyAsKeyStore(s *crypto.PrivateKey, pw []byte, filepath string) ([]byte, error) {
 	var ks KeyStoreData
 	var c AES128CTRParams
 	var k ScryptParams
@@ -137,7 +137,7 @@ func EncryptKeyAsKeyStore(s *crypto.PrivateKey, pw []byte, filepath string) ([]b
 }
 
 // DecryptKeyStore decrypts the given keystore file with the given password.
-func DecryptKeyStore(data, pw []byte) (*crypto.PrivateKey, error) {
+func decryptKeyStore(data, pw []byte) (*crypto.PrivateKey, error) {
 	var ksData KeyStoreData
 	if err := json.Unmarshal(data, &ksData); err != nil {
 		return nil, err
@@ -214,21 +214,21 @@ func ReadAddressFromKeyStore(data []byte) (module.Address, error) {
 }
 
 
-func NewFromKeyStore(data, pw []byte) (module.Wallet, error) {
-	secret, err := DecryptKeyStore(data, pw)
+func newFromKeyStore(data, pw []byte) (module.Wallet, error) {
+	secret, err := decryptKeyStore(data, pw)
 	if err != nil {
 		return nil, err
 	}
-	return NewFromPrivateKey(secret)
+	return newFromPrivateKey(secret)
 }
 
 // Create a new keystore file from a wallet instance. 
 // Takes in the wallet instance, the password to encrypt the keystore file with.
 // and the filepath to save the keystore file to.
-func KeyStoreFromWallet(w module.Wallet, pw []byte, filepath string) ([]byte, error) {
+func keyStoreFromWallet(w module.Wallet, pw []byte, filepath string) ([]byte, error) {
 	s, ok := w.(*softwareWallet)
 	if ok {
-		return EncryptKeyAsKeyStore(s.skey, pw, filepath)
+		return encryptKeyAsKeyStore(s.skey, pw, filepath)
 	} else {
 		return nil, nil
 	}

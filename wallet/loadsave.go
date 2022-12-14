@@ -6,9 +6,9 @@ import (
 )
 // Public function that creates and saves a new wallet as a keystore file to filepath.
 func CreateNewWalletAndKeystore(filepath string, password string) {
-	Wallet := New()
+	Wallet := new()
 	pw := []byte(password)	
-	KeyStoreFromWallet(Wallet, pw, filepath)
+	keyStoreFromWallet(Wallet, pw, filepath)
 }
 
 // Public function that loads a wallet from a keystore file.
@@ -21,7 +21,7 @@ func LoadWallet(filepath string, password string) module.Wallet {
 		panic(err)
 	}
 
-	ks, err := NewFromKeyStore(data,pw)
+	ks, err := newFromKeyStore(data,pw)
 	if err != nil {
 		panic(err)
 	}
