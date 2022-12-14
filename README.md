@@ -1,8 +1,57 @@
-# go-icon-sdk
+# GO-ICON-SDK
 
-The Icon SDK for Go is a library for building applications on the ICON network.
+The Icon SDK for Go is a library for interacting with applications on the ICON network and the network it self.
 
-## Create Client
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#features">Features</a>
+      <ul>
+        <li><a href="#client">Create client and connect to a node</a></li>
+        <li><a href="#create-wallet">Wallets</a></li>
+        <li><a href="#transfer-icx">Transfer ICX</a></li>
+        <li><a href="#call-a-smart-contract">Call a Smart Contract</a></li>
+        <li><a href="#change-a-value-in-a-smart-contract">Change a value in a Smart Contract</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting started</a>
+      <ul>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+  </ol>
+</details>
+
+## Features
+
+* Connecting to the blockchain via a node
+* Call methods on the blockchain
+* Creating / loading wallets
+* Transfer ICX
+* Call Smart Contracts (SCOREs)
+* Change the state of values inside a Smart Contract (SCORE)
+
+## Getting Started
+
+
+### Installation
+
+Import the package.
+
+  ```go
+  import "github.com/eyeonicon/go-icon-sdk"
+  ```
+   
+## Usage
+
+
+### Client
 In src/main.go in the main function:
 
 1. Set the node you want to connect to globally. You can add networks in the networks/networks.go file.
@@ -37,15 +86,14 @@ fmt.Println(util.HexToBigInt(string(*balance)))
 
 [Click here to see all the available methods on the created Client](https://pkg.go.dev/github.com/icon-project/goloop@v1.2.14/client#NewClientV3)
 
-
-## Create Wallet
+### Create Wallet
 When creating a new wallet it is automatically __saved as a keystore file.__ Call the function below with the _"path/filename"_. The password is used to encrypt the keystore file, don't forget it!
 
 ```go
 wallet.CreateNewWalletAndKeystore("../mywallets/keystore01", "password")
 ```
 
-## Load Wallet
+### Load Wallet
 When loading a wallet you need to provide the path to the keystore file and the password to decrypt the keystore file.
 
 ```go
@@ -53,7 +101,7 @@ Wallet := wallet.LoadWalletFromKeystore("../mywallets/keystore01", "password")
 ```
 __Note:__ To prevent confusing between the created wallet instance and the wallet-package we name the wallet that we load "Wallet" (so with a capital W, instead of the package name).
 
-## Send ICX
+###  Transfer ICX
 Use the TransferICXBuilder to get a transaction object. The address should be a string and the amount must be converted to a big.Int before sending it to the builder. We do this by using the "util.ICXToLoop()" function.
 
 
@@ -81,7 +129,7 @@ if err != nil {
 fmt.Println(*tx)
 ```
 
-## Call a Smart Contract on the ICON Blockchain (read-only)
+### Call a Smart Contract
 Use the CallBuilder to get a call-object. The Callbuilder takes in the address of the smart contract as a string, the name of the method you want to call (also as a string) and a params object. If the method you want to call does not take any parameters you can just pass in a empty object.
 
 1. Call a method with no parameters
@@ -138,8 +186,7 @@ bn := util.HexToBigInt(hex)
 // and finally print it
 fmt.Println(bn) 
 ```
-
-## Change a value in a Smart Contract on the ICON Blockchain
+### Change a value in a Smart Contract
 When you want to change a value on a smart contract you need to use the "SendTransaction" function. This function takes in a wallet, a transaction object and a stepLimit. The stepLimit is the maximum amount of steps that the transaction can use. The stepLimit is calculated by the ICON network and is returned in the response of the transaction. If you want to be sure that your transaction is executed you can set the stepLimit to a very high number. 
 
 Here we first call the current value of the 'name' variable on the contract, and then change it.
@@ -184,3 +231,23 @@ if err != nil {
 fmt.Println(*hash) // Returns the hash of the tx.
 ```
 Run the first part of the code again or [check the contract on the tracker](https://lisbon.tracker.solidwallet.io/contract/cx2b60e6e094df34a0d7c05b5ff5cb6758aba7e83e#readcontract) to see if the value has changed.
+
+## Contributing
+
+If you want to contribute, be sure to review the [contributing guidelines][contributing].
+
+We use GitHub Issues for tracking requests and bugs, and Github Discussions for general questions and discussion.
+
+The ICON project strives to abide by generally accepted best practices in open-source software development.
+
+## License
+
+Distributed under the PROJECT-LICENSE License. See [LICENSE][license-url] for more information.
+
+[license-badge]: https://img.shields.io/github/license/icon-project/REPO-NAME.svg
+[license-url]: ./LICENSE
+[openssf-scorecard-badge]: https://api.securityscorecards.dev/projects/github.com/icon-project/REPO-NAME/badge
+[docs]: ./docs
+[contributing]: ./CONTRIBUTING.md
+[report-bug]: https://github.com/icon-project/REPO-NAME/issues/new?assignees=&labels=&template=bug.md&title=
+[request-feature]: https://github.com/icon-project/REPO-NAME/issues/new?assignees=&labels=&template=feature.md&title=
