@@ -1,0 +1,5 @@
+# exclude everything
+mywallets/*
+
+# exception to the rule
+!mywallets/.gitkeep 

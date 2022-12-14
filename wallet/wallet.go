@@ -11,10 +11,12 @@ type softwareWallet struct {
 	pkey *crypto.PublicKey
 }
 
+// returns the address of the wallet
 func (w *softwareWallet) Address() module.Address {
 	return common.NewAccountAddressFromPublicKey(w.pkey)
 }
 
+// signs the data with the private key of the wallet
 func (w *softwareWallet) Sign(data []byte) ([]byte, error) {
 	sig, err := crypto.NewSignature(data, w.skey)
 	if err != nil {
@@ -23,10 +25,12 @@ func (w *softwareWallet) Sign(data []byte) ([]byte, error) {
 	return sig.SerializeRSV()
 }
 
+// returns the public key of the wallet
 func (w *softwareWallet) PublicKey() []byte {
 	return w.pkey.SerializeCompressed()
 }
 
+// creates a new key pair and returns a new wallet
 func New() module.Wallet {
 	sk, pk := crypto.GenerateKeyPair()
 	return &softwareWallet{
@@ -35,6 +39,7 @@ func New() module.Wallet {
 	}
 }
 
+// creates a key pair from a private key
 func NewFromPrivateKey(sk *crypto.PrivateKey) (module.Wallet, error) {
 	pk := sk.PublicKey()
 	return &softwareWallet{

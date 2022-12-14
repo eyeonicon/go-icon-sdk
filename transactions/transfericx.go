@@ -8,7 +8,7 @@ import (
 	"paulrouge/go-icon-sdk/util"
 )
 
-// amount is number of icx as a string
+// Build a transaction to transfer ICX (amount is number of icx to transfer)
 func TransferICXBuilder(to string, amount *big.Int) *v3.TransactionParam {
 	// convert to to jsonrpc.Address
 	toAddress := jsonrpc.Address(to)

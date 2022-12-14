@@ -25,8 +25,6 @@ func main() {
 
 	_ = Wallet
 
-
-
 	// set the contract address
 	contractAddress := "cx2b60e6e094df34a0d7c05b5ff5cb6758aba7e83e"
 	

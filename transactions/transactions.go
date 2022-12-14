@@ -1,3 +1,6 @@
+// Package transactions is used to build transaction objects.
+// these objects will be used to build the final rpc call to the node.
+
 package transactions
 
 import (
@@ -9,6 +12,7 @@ import (
 	"github.com/icon-project/goloop/server/v3"
 )
 
+// CallBuilder builds and returns a object that will be send to the network
 func CallBuilder(to string, method string, params interface{}) *v3.CallParam {
 	// convert to to jsonrpc.Address
 	toAddress := jsonrpc.Address(to)
@@ -32,7 +36,9 @@ func CallBuilder(to string, method string, params interface{}) *v3.CallParam {
 
 	return &callParams
 }
-	
+
+// TransactionBuilder builds and returns an object that will be signed using the 
+// loaded wallet and send to the network
 func TransactionBuilder(from module.Address, to string, method string, params interface{}, value *big.Int) *v3.TransactionParam {
 	// convert to to jsonrpc.Address
 	toAddress := jsonrpc.Address(to)

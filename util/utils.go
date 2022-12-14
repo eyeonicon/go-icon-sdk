@@ -1,3 +1,5 @@
+// Package util provides some utility functions for the go-icon-sdk.
+
 package util
 
 import (
@@ -7,7 +9,7 @@ import (
 	"github.com/ubiq/go-ubiq/common/hexutil"
 )
 
-// ICX to 18 decimal loop
+// ICX to 18 decimal Loop (Loop is the smalles unit of ICX, like Wei is the smallest unit of ETH)
 func ICXToLoop(iamount interface{}) *big.Int {
 	decimals := 18
 	amount := decimal.NewFromFloat(0)
@@ -34,14 +36,15 @@ func ICXToLoop(iamount interface{}) *big.Int {
 	return loop
 }
 
+// convert a big.Int to jsonrpc.HexInt
 func BigIntToHex(bi *big.Int) jsonrpc.HexInt {
 	hex := hexutil.EncodeBig(bi)
 	_hex := jsonrpc.HexInt(hex)
 	return _hex
 }
 
+// convert a jsonrpc.HexInt to big.Int
 func HexToBigInt(hex string) *big.Int {
-	
 	bi := hexutil.MustDecodeBig(string(hex))
 	return bi
 }

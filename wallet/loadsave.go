@@ -4,14 +4,14 @@ import (
 	"github.com/icon-project/goloop/module"
 	"io/ioutil"
 )
-
-
+// Public function that creates and saves a new wallet as a keystore file to filepath.
 func CreateNewWalletAndKeystore(filepath string, password string) {
 	Wallet := New()
 	pw := []byte(password)	
 	KeyStoreFromWallet(Wallet, pw, filepath)
 }
 
+// Public function that loads a wallet from a keystore file.
 func LoadWallet(filepath string, password string) module.Wallet {
 	pw := []byte(password)
 	
