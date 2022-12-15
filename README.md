@@ -244,7 +244,7 @@ The ICON project strives to abide by generally accepted best practices in open-s
 
 ## License
 
-Distributed under the PROJECT-LICENSE License. See [LICENSE][license-url] for more information.
+Distributed under the PROJECT-LICENSE License. See [LICENSE][https://github.com/eyeonicon/go-icon-sdk/blob/main/MIT_License] for more information.
 
 [license-badge]: https://img.shields.io/github/license/icon-project/REPO-NAME.svg
 [license-url]: ./LICENSE
