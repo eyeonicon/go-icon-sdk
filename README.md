@@ -104,6 +104,8 @@ Wallet := wallet.LoadWalletFromKeystore("../mywallets/keystore01", "password")
 __Note:__ To prevent confusing between the created wallet instance and the wallet-package we name the wallet that we load "Wallet" (so with a capital W, instead of the package name).
 
 ###  Transfer ICX
+Get test ICX from the [ICON Testnet Faucet](https://faucet.iconosphere.io/).
+
 Use the TransferICXBuilder to get a transaction object. The address should be a string and the amount must be converted to a big.Int before sending it to the builder. We do this by using the "util.ICXToLoop()" function.
 
 
@@ -236,20 +238,20 @@ Run the first part of the code again or [check the contract on the tracker](http
 
 ## Contributing
 
-If you want to contribute, be sure to review the [contributing guidelines][contributing].
+If you want to contribute, be sure to review the [contributing guidelines](https://github.com/github/docs/blob/6382cc7a8f7ed9d48fded50695c0a9cc283efd7c/CONTRIBUTING.md).
 
 We use GitHub Issues for tracking requests and bugs, and Github Discussions for general questions and discussion.
 
-The ICON project strives to abide by generally accepted best practices in open-source software development.
+Like the [ICON project](https://https://github.com/icon-project), we strive to abide by generally accepted best practices in open-source software development.
 
 ## License
 
-Distributed under the MIT License. See [LICENSE](https://github.com/eyeonicon/go-icon-sdk/blob/main/MIT_License) for more information.
+Distributed under the MIT License. See [LICENSE](./MIT_License) for more information.
 
 [license-badge]: https://img.shields.io/github/license/icon-project/REPO-NAME.svg
-[license-url]: ./LICENSE
+[license-url]: ./MIT_License
 [openssf-scorecard-badge]: https://api.securityscorecards.dev/projects/github.com/icon-project/REPO-NAME/badge
 [docs]: ./docs
-[contributing]: ./CONTRIBUTING.md
-[report-bug]: https://github.com/icon-project/REPO-NAME/issues/new?assignees=&labels=&template=bug.md&title=
-[request-feature]: https://github.com/icon-project/REPO-NAME/issues/new?assignees=&labels=&template=feature.md&title=
+[contributing]: https://github.com/github/docs/blob/6382cc7a8f7ed9d48fded50695c0a9cc283efd7c/CONTRIBUTING.md
+[report-bug]: https://github.com/eyeonicon/go-icon-sdk/issues/new?assignees=&labels=&template=bug.md&title=
+[request-feature]: https://github.com/eyeonicon/go-icon-sdk/issues/new?assignees=&labels=&template=feature.md&title=
