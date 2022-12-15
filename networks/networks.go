@@ -29,7 +29,7 @@ func Lisbon() Network {
 	}
 }
 
-// Network for Main net
+// Network for Mainnet
 func Mainnet() Network {
 	return Network{
 		URL: "https://ctz.solidwallet.io/api/v3",

@@ -44,10 +44,10 @@ The Icon SDK for Go is a library for interacting with applications on the ICON n
 
 ### Installation
 
-Import the package.
+Clone the repo 
 
-  ```go
-  import "github.com/eyeonicon/go-icon-sdk"
+  ```
+  git clone https://github.com/eyeonicon/go-icon-sdk.git
   ```
    
 ## Usage
