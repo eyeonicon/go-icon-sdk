@@ -37,6 +37,16 @@ func Mainnet() Network {
 	}
 }
 
+// Add your own network
+// Example:
+
+// func YourNetwork() Network {
+// 	return Network{
+// 		URL: "https://yournode.com/api/v3",
+// 		NID: "0x1",
+// 	}
+// }
+
 // Set the active network globally
 func SetActiveNetwork(network Network) {
 	activeNetwork = network

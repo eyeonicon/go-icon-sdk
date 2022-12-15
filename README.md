@@ -13,7 +13,9 @@ The Icon SDK for Go is a library for interacting with applications on the ICON n
         <li><a href="#create-wallet">Wallets</a></li>
         <li><a href="#transfer-icx">Transfer ICX</a></li>
         <li><a href="#call-a-smart-contract">Call a Smart Contract</a></li>
-        <li><a href="#change-a-value-in-a-smart-contract">Change a value in a Smart Contract</a></li>
+        <li>
+            <a href="#change-a-value-in-a-smart-contract">Change a value in a Smart Contract</a>
+        </li>
       </ul>
     </li>
     <li>
