@@ -242,7 +242,7 @@ If you want to contribute, be sure to review the [contributing guidelines](https
 
 We use GitHub Issues for tracking requests and bugs, and Github Discussions for general questions and discussion.
 
-Like the [ICON project](https://https://github.com/icon-project), we strive to abide by generally accepted best practices in open-source software development.
+Like the [ICON project](https://github.com/icon-project), we strive to abide by generally accepted best practices in open-source software development.
 
 ## License
 
