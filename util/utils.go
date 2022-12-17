@@ -3,17 +3,17 @@
 package util
 
 import (
-	"math/big"
 	"github.com/icon-project/goloop/server/jsonrpc"
 	"github.com/shopspring/decimal"
 	"github.com/ubiq/go-ubiq/common/hexutil"
+	"math/big"
 )
 
 // ICX to 18 decimal Loop (Loop is the smalles unit of ICX, like Wei is the smallest unit of ETH)
 func ICXToLoop(iamount interface{}) *big.Int {
 	decimals := 18
 	amount := decimal.NewFromFloat(0)
-	
+
 	switch v := iamount.(type) {
 	case string:
 		amount, _ = decimal.NewFromString(v)

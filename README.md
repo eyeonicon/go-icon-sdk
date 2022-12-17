@@ -26,13 +26,15 @@
 
 The Icon SDK for Go is a library for interacting with applications on the ICON network and the network it self. 
 
-_This project is made possible by our CPS sponsor: [Eye On Icon](https://www.eyeonicon.xyz). Click [here](https://cps.icon.community/) to learn more about the ICON Contribution Proposal System (CPS)._
-
 <p align="center"> 
   <a href="https://www.eyeonicon.xyz">
     <img src="https://www.eyeonicon.xyz/media/logos/logo_256.png" alt="Logo" width="80" height="80">
   </a>
 </p>
+
+_This project is made possible by our CPS sponsor: [Eye On Icon](https://www.eyeonicon.xyz). Click [here](https://cps.icon.community/) to learn more about the ICON Contribution Proposal System (CPS)._
+
+
 
 <!-- TABLE OF CONTENTS -->
 <details>

@@ -1,9 +1,9 @@
-// Package networks provides a simple way to set the active network globally. 
+// Package networks provides a simple way to set the active network globally.
 // The url of the active network is the url of the node you want to connect to.
-// 
-// Set the active network with SetActiveNetwork(network Network) and 
+//
+// Set the active network with SetActiveNetwork(network Network) and
 // get the active network with GetActiveNetwork() Network.
-// 
+//
 // The Network struct contains the URL and NID of the network.
 // You can use the provided functions to get the URL and NID of the mainnet and the Lisbon testnet.
 // And you can create your own Network by creating a function that returns a Network struct.
