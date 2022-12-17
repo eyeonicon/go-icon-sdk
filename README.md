@@ -77,7 +77,7 @@ _This project is made possible by the ICON Node Validator: [Eye On Icon](https:/
 
 ### Imports
 
-Depending on what you want to do you need to import different packages. In most, if not all cases you will need the client and networks package.
+Depending on what you want to do you need to import different packages. In most, if not all cases, you will need the client and networks package.
 
 ```go
 import(
