@@ -9,7 +9,6 @@ import (
 	"crypto/cipher"
 	"crypto/rand"
 	"encoding/json"
-	"io"
 	"github.com/gofrs/uuid"
 	"github.com/icon-project/goloop/common"
 	"github.com/icon-project/goloop/common/crypto"
@@ -18,6 +17,7 @@ import (
 	"github.com/pkg/errors"
 	"golang.org/x/crypto/scrypt"
 	"golang.org/x/crypto/sha3"
+	"io"
 	"io/ioutil"
 )
 
@@ -216,7 +216,6 @@ func ReadAddressFromKeyStore(data []byte) (module.Address, error) {
 	return &ksData.Address, nil
 }
 
-
 func newFromKeyStore(data, pw []byte) (module.Wallet, error) {
 	secret, err := decryptKeyStore(data, pw)
 	if err != nil {
@@ -225,7 +224,7 @@ func newFromKeyStore(data, pw []byte) (module.Wallet, error) {
 	return newFromPrivateKey(secret)
 }
 
-// Create a new keystore file from a wallet instance. 
+// Create a new keystore file from a wallet instance.
 // Takes in the wallet instance, the password to encrypt the keystore file with.
 // and the filepath to save the keystore file to.
 func keyStoreFromWallet(w module.Wallet, pw []byte, filepath string) ([]byte, error) {
