@@ -118,6 +118,17 @@ networks.SetActiveNetwork(networks.Lisbon())
 networks.SetActiveNetwork(networks.Mainnet())
 ```
 
+You can also set a custom network:
+  
+  ```go
+  	myNetwork := networks.Network{
+		URL: "your node url",
+		NID: "0x1",
+	}
+  networks.SetActiveNetwork(myNetwork)
+  ```
+
+
 2. Create client
 ```go
 Client := client.NewClientV3(networks.GetActiveNetwork().URL)
@@ -244,6 +255,9 @@ bn := util.HexToBigInt(hex)
 fmt.Println(bn) 
 ```
 ### Change a value in a Smart Contract
+You are going to change the state of the smart contract / blockchain. This means that you need to pay a fee for the transaction. Get some test ICX from the [ICON Testnet Faucet](https://faucet.iconosphere.io/).
+
+
 When you want to change a value on a smart contract you need to use the "SendTransaction" function. This function takes in a wallet, a transaction object and a stepLimit. The stepLimit is the maximum amount of steps that the transaction can use. The stepLimit is calculated by the ICON network and is returned in the response of the transaction. If you want to be sure that your transaction is executed you can set the stepLimit to a very high number. 
 
 Here we first call the current value of the 'name' variable on the contract, and then change it.
