@@ -117,11 +117,12 @@ import(
 
 See the util package [here](./util/)
 
-In a lot of cases it might also be useful to import the jsonrpc package.
+In a lot of cases it might also be useful to import the jsonrpc and server/v3 package.
 
 ```go
 import(
   "github.com/icon-project/goloop/server/jsonrpc"
+  v3"github.com/icon-project/goloop/server/v3"
 )
 ```
 
