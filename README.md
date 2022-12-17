@@ -6,8 +6,8 @@
   <a href="https://www.eyeonicon.xyz">
     <img src="https://www.eyeonicon.xyz/media/logos/logo_256.png" alt="Logo" width="80" height="80">
   </a>
-  <a>
-  [![GoDoc](https://godoc.org/github.com/eyeonicon/go-icon-sdk?status.svg)](https://godoc.org/github.com/eyeonicon/go-icon-sdk)
+  <a href="https://godoc.org/github.com/eyeonicon/go-icon-sdk">
+  <img src="https://godoc.org/github.com/eyeonicon/go-icon-sdk?status.svg" alt="GoDoc">
   </a>
 
   <a>
