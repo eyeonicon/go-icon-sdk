@@ -2,7 +2,7 @@
 
 <!-- [alt text](https://www.eyeonicon.xyz/media/logos/logo_256.png "Eye On Icon") -->
 
-<p align="center">
+<p align="center" content="center">
   <a href="https://www.eyeonicon.xyz">
     <img src="https://www.eyeonicon.xyz/media/logos/logo_256.png" alt="Logo" width="80" height="80">
   </a>
