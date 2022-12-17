@@ -12,6 +12,10 @@
     <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT">
   </a>
 
+  <!-- make one for go ref stuff -->
+  <a href="https://goreportcard.com/report/github.com/eyeonicon/go-icon-sdk">
+    <img src="https://goreportcard.com/badge/github.com/eyeonicon/go-icon-sdk" alt="Go Report Card">
+  </a>
 
 </p>
 
@@ -21,7 +25,7 @@ _This project is made possible by our CPS sponsor: [Eye On Icon](https://www.eye
 
 <p align="center"> 
   <a href="https://www.eyeonicon.xyz">
-    <img src="https://www.eyeonicon.xyz/media/logos/logo_256.png" alt="Logo" width="60" height="60">
+    <img src="https://www.eyeonicon.xyz/media/logos/logo_256.png" alt="Logo" width="80" height="80">
   </a>
 </p>
 
