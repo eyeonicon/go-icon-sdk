@@ -12,14 +12,18 @@
     <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT">
   </a>
 
-  <a href="https://www.eyeonicon.xyz" align="right">
-    <img src="https://www.eyeonicon.xyz/media/logos/logo_256.png" alt="Logo" width="40" height="40">
-  </a>
+
 </p>
 
 The Icon SDK for Go is a library for interacting with applications on the ICON network and the network it self. 
 
-This project is made possible by our CPS sponsor: [Eye On Icon](https://www.eyeonicon.xyz). Click [here](https://cps.icon.community/) to learn more about the ICON Contribution Proposal System (CPS).
+_This project is made possible by our CPS sponsor: [Eye On Icon](https://www.eyeonicon.xyz). Click [here](https://cps.icon.community/) to learn more about the ICON Contribution Proposal System (CPS)._
+
+<p align="center"> 
+  <a href="https://www.eyeonicon.xyz">
+    <img src="https://www.eyeonicon.xyz/media/logos/logo_256.png" alt="Logo" width="60" height="60">
+  </a>
+</p>
 
 <!-- TABLE OF CONTENTS -->
 <details>
