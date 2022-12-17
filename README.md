@@ -2,7 +2,7 @@
 
 <!-- [alt text](https://www.eyeonicon.xyz/media/logos/logo_256.png "Eye On Icon") -->
 
-<p align="center">
+<p align="center" justify="center">
 
   <a href="https://godoc.org/github.com/eyeonicon/go-icon-sdk">
     <img src="https://godoc.org/github.com/eyeonicon/go-icon-sdk?status.svg" alt="GoDoc">
