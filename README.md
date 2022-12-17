@@ -75,15 +75,6 @@ _This project is made possible by the ICON Node Validator: [Eye On Icon](https:/
 
 ## Getting Started
 
-
-### Installation
-
-Clone the repo :
-
-  ```
-  git clone https://github.com/eyeonicon/go-icon-sdk.git
-  ```
-
 ### Imports
 
 Depending on what you want to do you need to import different packages. In most, if not all cases you will need the client and networks package.
