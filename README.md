@@ -32,7 +32,7 @@ The Icon SDK for Go is a library for interacting with applications on the ICON n
   </a>
 </p>
 
-_This project is made possible: ICON Node Validator [Eye On Icon](https://www.eyeonicon.xyz). Click [here](https://cps.icon.community/) to learn more about the ICON Contribution Proposal System (CPS)._
+_This project is made possible: ICON Node Validator [Eye On Icon](https://www.eyeonicon.xyz) and was funded by the ICON Contribution Proposal System. Click [here](https://cps.icon.community/) to learn more about the ICON Contribution Proposal System (CPS)._
 
 
 
