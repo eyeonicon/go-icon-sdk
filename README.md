@@ -2,16 +2,18 @@
 
 <!-- [alt text](https://www.eyeonicon.xyz/media/logos/logo_256.png "Eye On Icon") -->
 
-<p align="center" content="center">
-  <a href="https://www.eyeonicon.xyz">
-    <img src="https://www.eyeonicon.xyz/media/logos/logo_256.png" alt="Logo" width="80" height="80">
-  </a>
+<p align="center">
+
   <a href="https://godoc.org/github.com/eyeonicon/go-icon-sdk">
     <img src="https://godoc.org/github.com/eyeonicon/go-icon-sdk?status.svg" alt="GoDoc">
   </a>
 
   <a href="./LICENSE">
     <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT">
+  </a>
+
+  <a href="https://www.eyeonicon.xyz">
+    <img src="https://www.eyeonicon.xyz/media/logos/logo_256.png" alt="Logo" width="80" height="80">
   </a>
 </p>
 
