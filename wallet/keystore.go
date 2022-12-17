@@ -131,6 +131,9 @@ func encryptKeyAsKeyStore(s *crypto.PrivateKey, pw []byte, filepath string) ([]b
 	}
 
 	data, err := json.Marshal(&ks)
+	if err != nil {
+		return nil, err
+	}
 	ioutil.WriteFile(filepath, data, 0644)
 
 	return json.Marshal(&ks)
