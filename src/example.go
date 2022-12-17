@@ -12,13 +12,13 @@ import (
 
 func main() {
 	fmt.Println("Connecting to network...")
-	
+
 	// set the active network globally (this way we can reuse the network id in the tx builders)
 	networks.SetActiveNetwork(networks.Lisbon())
 	
 	Client := client.NewClientV3(networks.GetActiveNetwork().URL)
 
-	Wallet := wallet.LoadWallet("../mywallets/keystore01", "password")
+	Wallet := wallet.LoadWallet("../mywallets/testkeystore", "password")
 	_ = Wallet
 
 	// set the contract address
