@@ -120,13 +120,13 @@ networks.SetActiveNetwork(networks.Mainnet())
 
 You can also set a custom network:
   
-  ```go
-  	myNetwork := networks.Network{
-		URL: "your node url",
-		NID: "0x1",
-	}
-  networks.SetActiveNetwork(myNetwork)
-  ```
+```go
+myNetwork := networks.Network{
+  URL: "your node url",
+  NID: "0x1",
+}
+networks.SetActiveNetwork(myNetwork)
+```
 
 
 2. Create client
