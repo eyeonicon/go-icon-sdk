@@ -6,10 +6,13 @@
   <a href="https://www.eyeonicon.xyz">
     <img src="https://www.eyeonicon.xyz/media/logos/logo_256.png" alt="Logo" width="80" height="80">
   </a>
-  
+  <a>
   [![GoDoc](https://godoc.org/github.com/eyeonicon/go-icon-sdk?status.svg)](https://godoc.org/github.com/eyeonicon/go-icon-sdk)
+  </a>
 
+  <a>
   ![License](https://img.shields.io/badge/License-MIT-blue.svg)
+  </a>
 </p>
 
 The Icon SDK for Go is a library for interacting with applications on the ICON network and the network it self. 
