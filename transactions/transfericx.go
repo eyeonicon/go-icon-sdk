@@ -3,9 +3,9 @@ package transactions
 import (
 	"github.com/icon-project/goloop/server/jsonrpc"
 	"github.com/icon-project/goloop/server/v3"
-	"paulrouge/go-icon-sdk/networks"
+	"github.com/eyeonicon/go-icon-sdk/networks"
 	"math/big"
-	"paulrouge/go-icon-sdk/util"
+	"github.com/eyeonicon/go-icon-sdk/util"
 )
 
 // Build a transaction to transfer ICX (amount is number of icx to transfer)

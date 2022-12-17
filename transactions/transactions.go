@@ -5,8 +5,8 @@ package transactions
 
 import (
 	"math/big"
-	"paulrouge/go-icon-sdk/networks"
-	"paulrouge/go-icon-sdk/util"
+	"github.com/eyeonicon/go-icon-sdk/networks"
+	"github.com/eyeonicon/go-icon-sdk/util"
 	"github.com/icon-project/goloop/module"
 	"github.com/icon-project/goloop/server/jsonrpc"
 	"github.com/icon-project/goloop/server/v3"

@@ -44,12 +44,65 @@ The Icon SDK for Go is a library for interacting with applications on the ICON n
 
 ### Installation
 
-Clone the repo 
+Clone the repo :
 
   ```
   git clone https://github.com/eyeonicon/go-icon-sdk.git
   ```
-   
+
+### Imports
+
+Depending on what you want to do you need to import different packages. In most, if not all cases you will need the client and networks package.
+
+```go
+import(
+  "github.com/icon-project/goloop/client"
+  "github.com/eyeonicon/go-icon-sdk/networks"
+)
+```
+
+If you need to create or load a wallet you will also need the wallet package.
+
+```go
+import(
+  "github.com/eyeonicon/go-icon-sdk/wallet"
+)
+```
+
+See the wallet package [here](./wallet/)
+
+
+If you want to send a transaction or call a smart contract, you will need the transactions package.
+
+```go
+import(
+  "github.com/eyeonicon/go-icon-sdk/transactions"
+)
+```
+
+See the transactions package [here](./transactions/)
+
+If you want to use the util package you will need to import it.
+
+```go
+import(
+  "github.com/eyeonicon/go-icon-sdk/util"
+)
+```
+
+See the util package [here](./util/)
+
+In a lot of cases it might also be useful to import the jsonrpc package.
+
+```go
+import(
+  "github.com/icon-project/goloop/server/jsonrpc"
+)
+```
+
+See the jsonrpc package [here](https://github.com/icon-project/goloop/tree/master/server/jsonrpc)
+
+
 ## Usage
 
 
