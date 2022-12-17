@@ -12,7 +12,7 @@
     <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT">
   </a>
 
-  <a href="https://www.eyeonicon.xyz">
+  <a href="https://www.eyeonicon.xyz" align="right">
     <img src="https://www.eyeonicon.xyz/media/logos/logo_256.png" alt="Logo" width="40" height="40">
   </a>
 </p>
