@@ -2,16 +2,16 @@
 
 <!-- [alt text](https://www.eyeonicon.xyz/media/logos/logo_256.png "Eye On Icon") -->
 
-<p align="right">
+<p align="center">
   <a href="https://www.eyeonicon.xyz">
     <img src="https://www.eyeonicon.xyz/media/logos/logo_256.png" alt="Logo" width="80" height="80">
   </a>
   <a href="https://godoc.org/github.com/eyeonicon/go-icon-sdk">
-  <img src="https://godoc.org/github.com/eyeonicon/go-icon-sdk?status.svg" alt="GoDoc">
+    <img src="https://godoc.org/github.com/eyeonicon/go-icon-sdk?status.svg" alt="GoDoc">
   </a>
 
-  <a>
-  ![License](https://img.shields.io/badge/License-MIT-blue.svg)
+  <a href="./LICENSE">
+    <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT">
   </a>
 </p>
 
@@ -330,7 +330,7 @@ Like the [ICON project](https://github.com/icon-project), we strive to abide by 
 
 ## License
 
-Distributed under the MIT License. See [LICENSE](./MIT_License) for more information.
+Distributed under the MIT License. See [LICENSE](./LICENSE) for more information.
 
 [license-badge]: https://img.shields.io/github/license/icon-project/REPO-NAME.svg
 [license-url]: ./MIT_License
