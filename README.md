@@ -130,9 +130,9 @@ See the jsonrpc package [here](https://github.com/icon-project/goloop/tree/maste
 
 ## Usage
 
+In /src you can find an example file that shows how to use the SDK.
 
 ### Client
-In src/main.go in the main function:
 
 1. Set the node you want to connect to globally. You can add networks in the networks/networks.go file.
 ```go
