@@ -9,6 +9,7 @@ require (
 	github.com/shopspring/decimal v1.3.1
 	github.com/ubiq/go-ubiq v3.0.1+incompatible
 	golang.org/x/crypto v0.0.0-20210817164053-32db794688a5
+
 )
 
 require (

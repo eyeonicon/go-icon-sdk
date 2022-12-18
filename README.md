@@ -1,4 +1,4 @@
-# GO-ICON-SDK !
+# GO-ICON-SDK
 
 <!-- [alt text](https://www.eyeonicon.xyz/media/logos/logo_256.png "Eye On Icon") -->
 
