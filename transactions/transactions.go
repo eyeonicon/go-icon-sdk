@@ -4,12 +4,13 @@
 package transactions
 
 import (
+	"math/big"
+
 	"github.com/eyeonicon/go-icon-sdk/networks"
 	"github.com/eyeonicon/go-icon-sdk/util"
 	"github.com/icon-project/goloop/module"
 	"github.com/icon-project/goloop/server/jsonrpc"
 	"github.com/icon-project/goloop/server/v3"
-	"math/big"
 )
 
 // CallBuilder builds and returns a object that will be send to the network
@@ -67,6 +68,6 @@ func TransactionBuilder(from module.Address, to string, method string, params in
 		DataType:    "call",
 		Data:        data,
 	}
-
+	
 	return &txParams
 }

@@ -28,7 +28,7 @@ func main() {
 	contractAddress := "cx2b60e6e094df34a0d7c05b5ff5cb6758aba7e83e"
 
 	// this address has a method called name that returns the current "name" value of the contract
-	method := "nam"
+	method := "name"
 
 	// we only read the contract, so we don't need to sign the tx and can use the CallBuilder
 	callObject := transactions.CallBuilder(contractAddress, method, nil)
@@ -59,8 +59,9 @@ func main() {
 	hash, err := Client.SendTransaction(Wallet, tx)
 	if err != nil {
 		fmt.Println(err)
+		return // exit the program
 	}
-
+	
 	fmt.Println(*hash) // Returns the hash of the tx.
 
 }
