@@ -17,20 +17,28 @@ func main() {
 
 	Client := client.NewClientV3(networks.GetActiveNetwork().URL)
 
-	Wallet := wallet.LoadWallet("../mywallets/testkeystore", "password")
+	Wallet, error := wallet.LoadWallet("../mywallets/testkeystore", "password")
+	if error != nil {
+		fmt.Println(error)
+		return // exit the program
+	}
 	_ = Wallet
 
 	// set the contract address
 	contractAddress := "cx2b60e6e094df34a0d7c05b5ff5cb6758aba7e83e"
 
 	// this address has a method called name that returns the current "name" value of the contract
-	method := "name"
+	method := "nam"
 
 	// we only read the contract, so we don't need to sign the tx and can use the CallBuilder
 	callObject := transactions.CallBuilder(contractAddress, method, nil)
 
 	// send the call
-	res, _ := Client.Call(callObject)
+	res, error := Client.Call(callObject)
+	if error != nil {
+		fmt.Println(error)
+		return // exit the program
+	}
 
 	fmt.Println(res) // Returns the current value of 'name' on the contract.
 
