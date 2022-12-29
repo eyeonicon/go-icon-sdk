@@ -13,20 +13,20 @@ func CreateNewWalletAndKeystore(filepath string, password string) {
 }
 
 // Public function that loads a wallet from a keystore file.
-func LoadWallet(filepath string, password string) module.Wallet {
+func LoadWallet(filepath string, password string) (module.Wallet, error) {
 	pw := []byte(password)
 
 	// read keystore from filepath
 	data, err := ioutil.ReadFile(filepath)
 	if err != nil {
-		panic(err)
+		return nil, err
 	}
 
 	ks, err := newFromKeyStore(data, pw)
 	if err != nil {
-		panic(err)
+		return nil, err
 	}
 
-	return ks
+	return ks, nil
 
 }
